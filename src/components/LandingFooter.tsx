@@ -389,12 +389,12 @@ export function LandingFooter() {
             <img
               src="/assets/transportvibe/ic-amex.png"
               alt="Amex"
-              className="h-8 w-auto object-contain"
+              className="h-7 w-auto object-contain"
             />
             <img
               src="/assets/transportvibe/ic-apple-pay.png"
               alt="Apple Pay"
-              className="h-6 w-auto object-contain"
+              className="h-5 w-auto object-contain"
             />
             <img
               src="/assets/transportvibe/ic-paypal.png"
@@ -404,17 +404,17 @@ export function LandingFooter() {
             <img
               src="/assets/transportvibe/ic-venmo.png"
               alt="Venmo"
-              className="h-4 w-auto object-contain"
+              className="h-3 w-auto object-contain"
             />
             <img
               src="/assets/transportvibe/ic-discover.png"
               alt="Discover"
-              className="h-5 w-auto object-contain"
+              className="h-3 w-auto object-contain"
             />
             <img
               src="/assets/transportvibe/ic-master-card.png"
               alt="Mastercard"
-              className="h-9 w-auto object-contain"
+              className="h-6 w-auto object-contain"
             />
           </div>
         </div>
