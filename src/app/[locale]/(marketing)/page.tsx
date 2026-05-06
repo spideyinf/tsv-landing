@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
+import { CompanyCard } from '@/components/CompanyCard';
+import { LandingFooter } from '@/components/LandingFooter';
 
 type IndexPageProps = {
   params: Promise<{ locale: string }>;
@@ -14,6 +16,93 @@ export const metadata: Metadata = {
 export default async function IndexPage(props: IndexPageProps) {
   const { locale } = await props.params;
   setRequestLocale(locale);
+
+  const companies = [
+    {
+      name: 'AutoShip Express',
+      logoInitials: 'AE',
+      rating: 4.8,
+      reviewCount: 2900,
+      yearsInBusiness: 11,
+      trustScore: 96,
+      isBestChoice: true,
+      performance: [
+        { label: 'Pricing Accuracy', value: 92, color: 'green' as const },
+        { label: 'Communication', value: 74, color: 'amber' as const },
+        { label: 'Vehicle Condition', value: 84, color: 'green' as const }
+      ]
+    },
+    {
+      name: 'RoadRunner Transport',
+      logoInitials: 'RT',
+      rating: 4.6,
+      reviewCount: 1850,
+      yearsInBusiness: 8,
+      trustScore: 88,
+      isBestChoice: false,
+      performance: [
+        { label: 'Pricing Accuracy', value: 85, color: 'green' as const },
+        { label: 'Communication', value: 68, color: 'amber' as const },
+        { label: 'Vehicle Condition', value: 79, color: 'amber' as const }
+      ]
+    },
+    {
+      name: 'CarGo Direct',
+      logoInitials: 'CD',
+      rating: 4.7,
+      reviewCount: 3200,
+      yearsInBusiness: 14,
+      trustScore: 92,
+      isBestChoice: false,
+      performance: [
+        { label: 'Pricing Accuracy', value: 89, color: 'green' as const },
+        { label: 'Communication', value: 81, color: 'green' as const },
+        { label: 'Vehicle Condition', value: 91, color: 'green' as const }
+      ]
+    },
+    {
+      name: 'SwiftHaul Motors',
+      logoInitials: 'SH',
+      rating: 4.5,
+      reviewCount: 980,
+      yearsInBusiness: 5,
+      trustScore: 79,
+      isBestChoice: false,
+      performance: [
+        { label: 'Pricing Accuracy', value: 76, color: 'amber' as const },
+        { label: 'Communication', value: 71, color: 'amber' as const },
+        { label: 'Vehicle Condition', value: 83, color: 'green' as const }
+      ]
+    },
+    {
+      name: 'Elite Auto Movers',
+      logoInitials: 'EA',
+      rating: 4.9,
+      reviewCount: 4100,
+      yearsInBusiness: 18,
+      trustScore: 98,
+      isBestChoice: true,
+      performance: [
+        { label: 'Pricing Accuracy', value: 97, color: 'green' as const },
+        { label: 'Communication', value: 94, color: 'green' as const },
+        { label: 'Vehicle Condition', value: 96, color: 'green' as const }
+      ]
+    },
+    {
+      name: 'StarShip Logistics',
+      logoInitials: 'SL',
+      rating: 4.4,
+      reviewCount: 670,
+      yearsInBusiness: 3,
+      trustScore: 71,
+      isBestChoice: false,
+      performance: [
+        { label: 'Pricing Accuracy', value: 68, color: 'amber' as const },
+        { label: 'Communication', value: 65, color: 'amber' as const },
+        { label: 'Vehicle Condition', value: 74, color: 'amber' as const }
+      ]
+    }
+  ];
 
   return (
     <div className="min-h-screen bg-white font-sans antialiased">
@@ -134,16 +223,16 @@ export default async function IndexPage(props: IndexPageProps) {
             <div className="flex items-center gap-5 text-sm font-medium text-gray-400">
               <a
                 href="#"
-                className="hover:text-gray-900 transition-colors whitespace-nowrap"
+                className="hover:text-gray-500 transition-colors whitespace-nowrap"
               >
                 About Us
               </a>
-              <a href="#" className="hover:text-gray-900 transition-colors">
+              <a href="#" className="hover:text-gray-500 transition-colors">
                 Compare
               </a>
               <a
                 href="#"
-                className="flex items-center gap-1.5 hover:text-gray-900 transition-colors whitespace-nowrap"
+                className="flex items-center gap-1.5 hover:text-gray-500 transition-colors whitespace-nowrap"
               >
                 <svg
                   className="w-3.5 h-3.5 text-gray-300"
@@ -159,20 +248,20 @@ export default async function IndexPage(props: IndexPageProps) {
               </a>
               <a
                 href="#"
-                className="hover:text-gray-900 transition-colors whitespace-nowrap"
+                className="hover:text-gray-500 transition-colors whitespace-nowrap"
               >
                 Full Service
               </a>
-              <a href="#" className="hover:text-gray-900 transition-colors">
+              <a href="#" className="hover:text-gray-500 transition-colors">
                 Companies
               </a>
-              <a href="#" className="hover:text-gray-900 transition-colors">
+              <a href="#" className="hover:text-gray-500 transition-colors">
                 Stories
               </a>
-              <a href="#" className="hover:text-gray-900 transition-colors">
+              <a href="#" className="hover:text-gray-500 transition-colors">
                 Resources
               </a>
-              <button className="flex items-center gap-0.5 hover:text-gray-900 transition-colors">
+              <button className="flex items-center gap-0.5 hover:text-gray-500 transition-colors">
                 Tools
                 <svg
                   className="w-3.5 h-3.5"
@@ -448,7 +537,7 @@ export default async function IndexPage(props: IndexPageProps) {
                   </div>
                 </div>
 
-                <button className="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-4 rounded-lg text-sm uppercase tracking-widest transition-colors">
+                <button className="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3.5 rounded-lg text-sm uppercase tracking-widest transition-colors">
                   Vehicle details
                 </button>
               </div>
@@ -480,6 +569,175 @@ export default async function IndexPage(props: IndexPageProps) {
           </div>
         </div>
       </section>
+
+      <section className="bg-white py-20">
+        <div className="max-w-350 mx-auto px-6">
+          <div className="mb-12">
+            <div className="mb-4">
+              <span className="text-green-600 font-semibold text-sm">
+                How It Works
+              </span>
+              <div className="w-16 h-0.5 bg-green-500 mt-1.5" />
+            </div>
+            <h2 className="text-4xl font-bold text-gray-900 mb-3">
+              Four Steps To A Stress-Free Car Delivery.
+            </h2>
+            <p className="text-gray-500 text-base">
+              We took the chaos out of car shipping. No guessing games, just a
+              clear path from A to B.
+            </p>
+          </div>
+
+          <div className="flex border border-gray-200 rounded-lg overflow-hidden">
+            <div className="flex-1 p-8 bg-white">
+              <div className="text-green-500 mb-5">
+                <svg
+                  className="w-8 h-8"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5C21.27 7.61 17 4.5 12 4.5zm0 12.5c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8a3 3 0 100 6 3 3 0 000-6z" />
+                </svg>
+              </div>
+              <h3 className="text-gray-900 font-bold text-lg mb-3">
+                1. Spot the Red Flags
+              </h3>
+              <p className="text-gray-500 text-sm leading-relaxed">
+                Don&apos;t get burned by fake 5-star ratings. Access our vault
+                of verified video testimonials and real customer stories from
+                people who have actually used these carriers.
+              </p>
+            </div>
+
+            <div className="relative w-7 shrink-0 bg-gray-50">
+              <svg
+                className="absolute inset-0 w-full h-full"
+                viewBox="0 0 28 100"
+                preserveAspectRatio="none"
+              >
+                <polygon points="0,0 28,50 0,100" fill="white" />
+              </svg>
+            </div>
+
+            <div className="flex-1 p-8 bg-gray-50">
+              <div className="text-green-500 mb-5">
+                <svg
+                  className="w-8 h-8"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M5 9.2h3V19H5V9.2zM10.6 5h2.8v14h-2.8V5zm5.6 8H19v6h-2.8v-6z" />
+                </svg>
+              </div>
+              <h3 className="text-gray-900 font-bold text-lg mb-3">
+                2. Compare the Cold Hard Facts
+              </h3>
+              <p className="text-gray-500 text-sm leading-relaxed">
+                Line up the top contenders. We break down the stuff that
+                matters: insurance limits, active DOT standing, and real-world
+                delivery timelines. No fluff, just data.
+              </p>
+            </div>
+
+            <div className="relative w-7 shrink-0 bg-white">
+              <svg
+                className="absolute inset-0 w-full h-full"
+                viewBox="0 0 28 100"
+                preserveAspectRatio="none"
+              >
+                <polygon points="0,0 28,50 0,100" fill="#f9fafb" />
+              </svg>
+            </div>
+
+            <div className="flex-1 p-8 bg-white">
+              <div className="text-green-500 mb-5">
+                <svg
+                  className="w-8 h-8"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M12 1.5l2.268 6.27L21 9.5l-6.732 2.23L12 18l-2.268-6.27L3 9.5l6.732-1.73L12 1.5zm7 10.5.9 2.5 2.6.9-2.6.9-.9 2.5-.9-2.5-2.6-.9 2.6-.9.9-2.5z" />
+                </svg>
+              </div>
+              <h3 className="text-gray-900 font-bold text-lg mb-3">
+                3. Get Your AI Match
+              </h3>
+              <p className="text-gray-500 text-sm leading-relaxed">
+                Tell us where your car is and where it&apos;s going. Our Advisor
+                runs the numbers and matches you with the carrier that fits your
+                budget and timeline perfectly.
+              </p>
+            </div>
+
+            <div className="relative w-7 shrink-0 bg-gray-50">
+              <svg
+                className="absolute inset-0 w-full h-full"
+                viewBox="0 0 28 100"
+                preserveAspectRatio="none"
+              >
+                <polygon points="0,0 28,50 0,100" fill="white" />
+              </svg>
+            </div>
+
+            <div className="flex-1 p-8 bg-gray-50">
+              <div className="text-green-500 mb-5">
+                <svg
+                  className="w-8 h-8"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M19 3h-1V1h-2v2H8V1H6v2H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2zm0 16H5V8h14v11zm-7-9h-2v2H8v2h2v2h2v-2h2v-2h-2v-2z" />
+                </svg>
+              </div>
+              <h3 className="text-gray-900 font-bold text-lg mb-3">
+                4. Book Your Way
+              </h3>
+              <p className="text-gray-500 text-sm leading-relaxed">
+                Pick your favorite carrier from our list or let us manage the
+                entire process for you. Either way, you get the same verified
+                protection and peace of mind.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-gray-50 py-20">
+        <div className="max-w-350 mx-auto px-6">
+          <div className="mb-12">
+            <div className="mb-4">
+              <span className="text-green-600 font-semibold text-sm">
+                Top Companies
+              </span>
+              <div className="w-16 h-0.5 bg-green-500 mt-1.5" />
+            </div>
+            <h2 className="text-4xl font-bold text-gray-900 mb-3">
+              Verified Carriers You Can Trust.
+            </h2>
+            <p className="text-gray-500 text-base">
+              Every company is screened, scored, and reviewed by real customers.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-3 gap-8">
+            {companies.map((company) => (
+              <CompanyCard
+                key={company.name}
+                name={company.name}
+                logoInitials={company.logoInitials}
+                rating={company.rating}
+                reviewCount={company.reviewCount}
+                yearsInBusiness={company.yearsInBusiness}
+                trustScore={company.trustScore}
+                isBestChoice={company.isBestChoice}
+                performance={company.performance}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <LandingFooter />
     </div>
   );
 }
